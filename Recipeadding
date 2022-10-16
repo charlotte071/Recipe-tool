@@ -1,0 +1,41 @@
+print("Welcome to the recipie tool, if you'd like to create a new recipie enter 1, if you'd like to view all recipies press 2, press 3 to view collections")
+action = int(input())
+collections = ["Collections: "]
+while action == 1:
+  name = input("Name: ")
+  ingredient = input("Ingredients: ")
+  method = input("Method: ")
+  servings = int(input("How many servings is this recipe: "))
+  handsontime = int(input("How many minutes does this take in hands on time"))
+  cookingtime = int(input("How many minutes does this take to cook"))
+  handsontime = str(handsontime)
+  cookingtime = str(cookingtime)
+  servings = str(servings)
+  Title = name
+  Title = ("\n"+ name + " \nIngredients: " + ingredient + " \nMethod: " + method + "\nServings: " + servings + "\nPreperation time: " + handsontime +"\nCooking Time: " + cookingtime) 
+  f = open("allRecipes.txt", "a")
+  f.write(Title)
+  f.close()
+  collection = input("What collection do you want to add this to: ")
+  f = open(collection+".txt", "a")
+  f.write("\n" + Title)
+  f.close()
+  collections.append(collection)
+  print("\nWelcome to the recipie tool, if you'd like to create a new recipie enter 1, if you'd like to view all recipies press 2, press 3 to view collections or press 4 to create a shopping list for a specific recipe")
+  action = int(input())
+  
+while action == 2:
+  f = open("allRecipes.txt", "r")
+  print(f.read())
+  print("Welcome to the recipie tool, if you'd like to create a new recipie enter 1, if you'd like to view all recipies press 2, press 3 to view collections or press 4 to create a shopping list for a specific recipe")
+  action = int(input())
+
+while action == 3:
+  print(collections)
+  collectionChoice = input("Enter whichever collection you'd like to view")
+  f = open(collectionChoice +".txt", "r")
+  print(f.read())
+  print("Welcome to the recipie tool, if you'd like to create a new recipie enter 1, if you'd like to view all recipies press 2, press 3 to view collections or press 4 to create a shopping list for a specific recipe")
+  action = int(input())
+
+
